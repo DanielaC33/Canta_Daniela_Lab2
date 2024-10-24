@@ -21,16 +21,9 @@ namespace Canta_Daniela_Lab2.Pages.Books
 
         public IActionResult OnGet()
         {
-            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
 
-            ViewData["AuthorID"] = new SelectList(
-                _context.Set<Author>()
-                    .Select(a => new
-                    {
-                        ID = a.ID,
-                        FullName = a.FirstName + " " + a.LastName
-                    }).ToList(),
-                "ID", "FullName");
+            ViewData["PublisherID"] = new SelectList(_context.Set<Publisher>(), "ID", "PublisherName");
+            ViewData["AuthorID"] = new SelectList(_context.Set<Author>(), "ID", "AuthorFullName");
             return Page();
         }
 
@@ -50,5 +43,6 @@ namespace Canta_Daniela_Lab2.Pages.Books
 
             return RedirectToPage("./Index");
         }
+
     }
 }
