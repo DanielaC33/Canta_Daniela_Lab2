@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Canta_Daniela_Lab2.Data;
 using Canta_Daniela_Lab2.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Canta_Daniela_Lab2.Pages.Books
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : BookCategoriesPageModel
     {
         private readonly Canta_Daniela_Lab2.Data.Canta_Daniela_Lab2Context _context;
